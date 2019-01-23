@@ -6,7 +6,7 @@
   "bin": {
     "cognitocurl": "./bin/run"
   },
-  "bugs": "https://github.com/curl-cognito/cognitocurl/issues",
+  "bugs": "https://github.com/nordcloud/cognitocurl",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -41,9 +41,9 @@
     "/bin",
     "/lib"
   ],
-  "homepage": "https://github.com/curl-cognito/cognitocurl",
+  "homepage": "https://github.com/nordcloud/cognitocurl",
   "keywords": [
-    "oclif"
+    "aws", "cognito", "api gateway", "curl", "oclif"
   ],
   "license": "MIT",
   "main": "lib/index.js",
