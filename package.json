@@ -1,0 +1,60 @@
+{
+  "name": "cognitocurl",
+  "description": "CLI for making AWS Cognito signed requests to API Gateway",
+  "version": "0.0.4",
+  "author": "Jakub Holak",
+  "bin": {
+    "cognitocurl": "./bin/run"
+  },
+  "bugs": "https://github.com/curl-cognito/cognitocurl/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "@types/node-fetch": "^2.1.2",
+    "@types/opn": "^5.1.0",
+    "aws-amplify": "^1.1.9",
+    "aws-sdk": "^2.347.0",
+    "cli-ux": "^4.9.3",
+    "conf": "^2.0.0",
+    "node-fetch": "^2.2.0",
+    "node-persist": "^3.0.1",
+    "opn": "^5.4.0",
+    "query-string-params": "^1.7.5",
+    "serve-static": "^1.13.2",
+    "tslib": "^1",
+    "websocket": "^1.0.28"
+  },
+  "devDependencies": {
+    "@oclif/tslint": "^3",
+    "@types/chai": "^4",
+    "@types/mocha": "^5",
+    "@types/node": "^10",
+    "ts-node": "^7",
+    "tslint": "^5",
+    "typescript": "^3.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/curl-cognito/cognitocurl",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "bin": "cognitocurl"
+  },
+  "repository": "curl-cognito/cognitocurl",
+  "scripts": {
+    "posttest": "tslint -p . -t stylish",
+    "prepack": "rm -rf lib && tsc -b",
+    "test": "echo NO TESTS"
+  },
+  "types": "lib/index.d.ts"
+}
