@@ -1,7 +1,7 @@
 {
   "name": "cognitocurl",
   "description": "CLI for making AWS Cognito signed requests to API Gateway",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Jakub Holak",
   "bin": {
     "cognitocurl": "./bin/run"
@@ -43,7 +43,11 @@
   ],
   "homepage": "https://github.com/nordcloud/cognitocurl",
   "keywords": [
-    "aws", "cognito", "api gateway", "curl", "oclif"
+    "aws",
+    "cognito",
+    "api gateway",
+    "curl",
+    "oclif"
   ],
   "license": "MIT",
   "main": "lib/index.js",
