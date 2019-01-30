@@ -23,7 +23,7 @@ $ npm -i g cognitocurl
 Then:
 
 ```
-$ cognitocurl --cognitoclient=XXX --userpool=YYY --run "full curl command here"
+$ cognitocurl --cognitoclient XXX --userpool YYY --run "full curl command here"
 ```
 
 ## Available flags
@@ -35,11 +35,11 @@ $ cognitocurl --cognitoclient=XXX --userpool=YYY --run "full curl command here"
 
 ### Features:
 
-- `--cognitoclient=cognitoclientid` - Cognito Client ID
-- `--userpool=userpoolid` - Cognito User Pool ID
-- `--header=header` - _Defaults to 'Authorization'_
+- `--cognitoclient cognitoclientid` - Cognito Client ID
+- `--userpool userpoolid` - Cognito User Pool ID
+- `--header header` - _Defaults to 'Authorization'_
 - `--reset` - Reset cached Cognito credentials
-- `--run="runcommand"` - pass your curl command here
+- `--run "runcommand"` - pass your curl command here
 
 ## Plans for the future
 
