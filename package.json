@@ -54,7 +54,7 @@
   "oclif": {
     "bin": "cognitocurl"
   },
-  "repository": "curl-cognito/cognitocurl",
+  "repository": "nordcloud/cognitocurl",
   "scripts": {
     "posttest": "tslint -p . -t stylish",
     "prepack": "rm -rf lib && tsc -b",
