@@ -26,6 +26,12 @@ Then:
 $ cognitocurl --cognitoclient XXX --userpool YYY --run "full curl command here"
 ```
 
+or
+
+```
+$ cognitocurl --hostedui hosteduisetupfilename.json --run "full curl command here"
+```
+
 ## Available flags
 
 ### Tools:
@@ -40,11 +46,28 @@ $ cognitocurl --cognitoclient XXX --userpool YYY --run "full curl command here"
 - `--header header` - _Defaults to 'Authorization'_
 - `--reset` - Reset cached Cognito credentials
 - `--run "runcommand"` - pass your curl command here
+- `--hostedui hostedui.json` - if passed, Congito Hosted UI will be launched and configured using setup from provided json file
+
+#### Hosted UI json setup example
+
+If you want to use hosted ui, provide `--hostedui`. You should provide a setup jsonfile file like this:
+
+```
+{
+  "region": "eu-west-1",
+  "userPoolId": "your_user_pool_id",
+  "userPoolWebClientId": "your_web_client_id",
+  "redirectSignIn": "http://localhost:3000",
+  "redirectSignOut": "http://localhost:3000",
+  "domain": "your_hosted_ui_domain"
+}
+```
+
+**Note that `lochalhost:3000` should be added to your Cognito User Pool App Client setup!**
 
 ## Plans for the future
 
 - add federated/social logins (by opening browser window)
-- add hosted ui apps (by opening browser window)
 
 ## Authors
 

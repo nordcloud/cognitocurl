@@ -1,7 +1,7 @@
 {
   "name": "cognitocurl",
   "description": "CLI for making AWS Cognito signed requests to API Gateway",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Jakub Holak",
   "bin": {
     "cognitocurl": "./bin/run"
@@ -11,12 +11,15 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
+    "@types/express": "^4.16.1",
     "@types/node-fetch": "^2.1.2",
     "@types/opn": "^5.1.0",
     "aws-amplify": "^1.1.9",
     "aws-sdk": "^2.347.0",
     "cli-ux": "^4.9.3",
     "conf": "^2.0.0",
+    "express": "^4.16.4",
+    "express-ws": "^4.0.0",
     "node-fetch": "^2.2.0",
     "node-persist": "^3.0.1",
     "opn": "^5.4.0",

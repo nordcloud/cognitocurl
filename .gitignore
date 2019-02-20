@@ -7,3 +7,7 @@
 /tmp
 node_modules
 .editorconfig
+hostedui/node_modules
+hostedui/index.html
+hostedui/dist/*
+.DS_Store

@@ -15,6 +15,10 @@ class cognitocurl extends Command {
     userpool: flags.string({ description: "Congito User Pool ID" }),
     cognitoclient: flags.string({ description: "Cognito Client App ID" }),
     reset: flags.boolean({ description: "Reset Cognito credentials" }),
+    hostedui: flags.string({
+      description:
+        "Point to json with hosted ui config. If set, hosted ui will be launched."
+    }),
     storage: flags.string({
       description: "Persistent storage catalogue. Defaults to '/var/tmp'. "
     }),
@@ -39,20 +43,22 @@ class cognitocurl extends Command {
       storage: flags.storage
     };
 
-    const { run: command, header = "Authorization" } = flags;
+    const { run: command, header = "Authorization", hostedui } = flags;
 
-    getToken(cognitoSetup)
-      .then((token: string) => {
-        const signedCommand = `${command} -H '${header}: ${token}' -s`;
-        exec(signedCommand, (err, stdout, stderr) => {
-          this.log(stdout, stderr);
-        });
-        return true;
-      })
-      .catch((error: string) => {
-        this.log(error);
-        return true;
+    try {
+      const token: string = hostedui
+        ? await getToken({ hostedUI: hostedui })
+        : await getToken(cognitoSetup);
+
+      const signedCommand = `${command} -H '${header}: ${token}' -s`;
+      exec(signedCommand, (err, stdout, stderr) => {
+        this.log(stdout, stderr);
+        process.exit();
       });
+    } catch (error) {
+      this.log(error);
+      return true;
+    }
   }
 }
 
