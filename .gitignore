@@ -10,3 +10,4 @@ node_modules
 hostedui/node_modules
 hostedui/index.html
 hostedui/dist/*
+.DS_Store
