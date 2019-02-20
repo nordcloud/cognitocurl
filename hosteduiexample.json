@@ -1,8 +1,0 @@
-{
-  "region": "eu-west-1",
-  "userPoolId": "eu-west-1_XBy1OxTut",
-  "userPoolWebClientId": "75nmjo3uum055d34i1njbqdq3p",
-  "redirectSignIn": "http://localhost:3000",
-  "redirectSignOut": "http://localhost:3000",
-  "domain": "provisioner.auth.eu-west-1.amazoncognito.com"
-}
