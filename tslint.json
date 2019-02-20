@@ -1,3 +1,4 @@
 {
-  "extends": "@oclif/tslint"
+  "extends": "@oclif/tslint",
+  "compilerOptions": { "allowSyntheticDefaultImports": true }
 }
