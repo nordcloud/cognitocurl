@@ -17,7 +17,7 @@ Made with ❤️ in Nordcloud
 Installation:
 
 ```
-$ npm -i g cognitocurl
+$ npm i -g cognitocurl
 ```
 
 Then:
