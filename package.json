@@ -42,7 +42,8 @@
   },
   "files": [
     "/bin",
-    "/lib"
+    "/lib",
+    "/hostedui/dist"
   ],
   "homepage": "https://github.com/nordcloud/cognitocurl",
   "keywords": [
