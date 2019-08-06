@@ -28,6 +28,9 @@ class cognitocurl extends Command {
     }),
     run: flags.string({
       description: "Command to be runned and  sign with -H Autorization token"
+    }),
+    token: flags.boolean({
+      description: "Token to stdout instead of running a curl command"
     })
   };
 
@@ -43,18 +46,23 @@ class cognitocurl extends Command {
       storage: flags.storage
     };
 
-    const { run: command, header = "Authorization", hostedui } = flags;
+    const { run: command, header = "Authorization", hostedui, token } = flags;
 
     try {
       const token: string = hostedui
         ? await getToken({ hostedUI: hostedui })
         : await getToken(cognitoSetup);
 
-      const signedCommand = `${command} -H '${header}: ${token}' -s`;
-      exec(signedCommand, (err, stdout, stderr) => {
-        this.log(stdout, stderr);
-        process.exit();
-      });
+      if (token) {
+        this.log(token);
+        process.exit(0);
+      } else {
+        const signedCommand = `${command} -H '${header}: ${token}' -s`;
+        exec(signedCommand, (err, stdout, stderr) => {
+          this.log(stdout, stderr);
+          process.exit();
+        });
+      }
     } catch (error) {
       this.log(error);
       return true;

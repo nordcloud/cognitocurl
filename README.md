@@ -47,6 +47,7 @@ $ cognitocurl --hostedui hosteduisetupfilename.json --run "full curl command her
 - `--reset` - Reset cached Cognito credentials
 - `--run "runcommand"` - pass your curl command here
 - `--hostedui hostedui.json` - if passed, Congito Hosted UI will be launched and configured using setup from provided json file
+- `--token` - if passed, run command will be ignored and access token will be printed to stdout instead
 
 #### Hosted UI json setup example
 
