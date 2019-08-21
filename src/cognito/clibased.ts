@@ -110,7 +110,7 @@ const GetTokenFromPersistedCredentials = (data: string, poolData: any) =>
 const getTokenFromCLI = async (data: any): Promise<string> => {
   const poolData = data;
 
-  storage.init({ dir: data.storage ? data.storage : "/var/tmp" });
+  await storage.init({ dir: data.storage ? data.storage : "/var/tmp" });
 
   return !data.reset
     ? TokenStorage.get(data)
