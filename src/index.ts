@@ -49,15 +49,15 @@ class cognitocurl extends Command {
     const { run: command, header = "Authorization", hostedui, token } = flags;
 
     try {
-      const token: string = hostedui
+      const cognitoToken: string = hostedui
         ? await getToken({ hostedUI: hostedui })
         : await getToken(cognitoSetup);
 
       if (token) {
-        this.log(token);
+        this.log(cognitoToken);
         process.exit(0);
       } else {
-        const signedCommand = `${command} -H '${header}: ${token}' -s`;
+        const signedCommand = `${command} -H '${header}: ${cognitoToken}' -s`;
         exec(signedCommand, (err, stdout, stderr) => {
           this.log(stdout, stderr);
           process.exit();
