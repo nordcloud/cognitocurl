@@ -1,7 +1,7 @@
 {
   "name": "cognitocurl",
   "description": "CLI for making AWS Cognito signed requests to API Gateway",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "author": "Jakub Holak",
   "bin": {
     "cognitocurl": "./bin/run"
