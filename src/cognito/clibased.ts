@@ -26,6 +26,32 @@ const TokenStorage = {
   }
 };
 
+const HandleNewPasswordRequired = async (cognitoUser: CognitoUser, username: string, poolData: any): Promise<string> => {
+  const newPassword = await cli.prompt("Password change required.\nNew Password", { type: "hide"});
+  return new Promise<string>((resolve, reject) => {
+    cognitoUser.completeNewPasswordChallenge(
+    newPassword, {}, {
+      onSuccess(result) {
+        const idToken: string = result.getIdToken().getJwtToken();
+        const refreshToken: string = result.getRefreshToken().getToken();
+        const idTokenTTI: number = +new Date() + 1800000; //now + 1/2 hour
+
+        TokenStorage.add(poolData, {
+          idToken,
+          idTokenTTI,
+          refreshToken,
+          username
+        }).then(() => {
+          resolve(idToken)
+        })
+      },
+      onFailure(err: Error) {
+        reject(err)
+      }
+    });
+  })
+};
+
 const GetTokenFromInput = async (poolData: any): Promise<string> => {
   const username = await cli.prompt("Username");
   const password = await cli.prompt("Password", { type: "hide" });
@@ -59,6 +85,9 @@ const GetTokenFromInput = async (poolData: any): Promise<string> => {
       },
       onFailure: function(err) {
         reject(err);
+      },
+      newPasswordRequired: function() {
+        HandleNewPasswordRequired(cognitoUser, username, poolData).then((resolve)).catch((reject));
       }
     });
   });
