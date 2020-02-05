@@ -30,6 +30,7 @@ Auth.configure(amplifyConfig);
 const { domain, redirectSignIn, redirectSignOut, responseType } = oauth;
 
 const sendToSocket = message => {
+  console.log("sss", message);
   const socketConnection = new WebSocket(socketUrl, "echo-protocol");
   socketConnection.onopen = function(event) {
     socketConnection.send(message);
@@ -54,8 +55,11 @@ const OAuthSignIn = () =>
 const checkCurrentUser = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const hasAuthCode = urlParams.get("code");
+
   Auth.currentAuthenticatedUser()
-    .then(user => sendToSocket(user.signInUserSession.idToken.jwtToken))
+    .then(user => {
+      Auth.currentSession().then(e => sendToSocket(e.getIdToken().jwtToken));
+    })
     .catch(e => {
       if (hasAuthCode) {
         const alex = new Logger("Alexander_the_auth_watcher");

@@ -17,6 +17,7 @@ const getTokenFromHostedUI = (setup: any): Promise<string> =>
         `<!DOCTYPE html><html><head><script>var amplifyCognitoConfig = ${config};var socket = "ws://localhost:3000";</script></head><body><div id="app"></div><script src="./cognitohosteduilauncher.js"></script></body></html>`
       )
     );
+
     app.ws("/", function(ws: any) {
       ws.on("message", function(msg: any) {
         resolve(msg);
