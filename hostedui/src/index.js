@@ -56,10 +56,8 @@ const checkCurrentUser = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const hasAuthCode = urlParams.get("code");
 
-  Auth.currentAuthenticatedUser()
-    .then(user => {
-      Auth.currentSession().then(e => sendToSocket(e.getIdToken().jwtToken));
-    })
+  Auth.currentSession()
+    .then(e => sendToSocket(e.getIdToken().jwtToken))
     .catch(e => {
       if (hasAuthCode) {
         const alex = new Logger("Alexander_the_auth_watcher");
