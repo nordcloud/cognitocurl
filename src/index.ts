@@ -50,9 +50,12 @@ class cognitocurl extends Command {
 
     try {
       const cognitoToken: string = hostedui
-        ? await getToken({ hostedUI: hostedui })
+        ? await getToken({
+           hostedUI: hostedui,
+           reset: flags.reset, // Tokens locally persisted will not be considered, but idToken persisted on browser localStorage may still be valid.
+           storage: flags.storage
+         })
         : await getToken(cognitoSetup);
-
       if (token) {
         this.log(cognitoToken);
         process.exit(0);
