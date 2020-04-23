@@ -31,7 +31,9 @@ class cognitocurl extends Command {
     }),
     token: flags.boolean({
       description: "Token to stdout instead of running a curl command"
-    })
+    }),
+    username: flags.string({ description: "Congito User name" }),
+    password: flags.string({ description: "Congito User password" }),
   };
 
   static strict = false;
@@ -43,7 +45,9 @@ class cognitocurl extends Command {
       UserPoolId: flags.userpool,
       ClientId: flags.cognitoclient,
       reset: flags.reset,
-      storage: flags.storage
+      storage: flags.storage,
+      Username: flags.username,
+      Password: flags.password
     };
 
     const { run: command, header = "Authorization", hostedui, token } = flags;
