@@ -32,6 +32,11 @@ or
 $ cognitocurl --hostedui hosteduisetupfilename.json --run "full curl command here"
 ```
 
+Getting access token with a single command
+```
+$ cognitocurl --cognitoclient CLIENT_ID --userpool USER_POOL_ID --token --username USER_NAME --password USER_PASSWORD
+``` 
+
 ## Available flags
 
 ### Tools:
@@ -48,6 +53,8 @@ $ cognitocurl --hostedui hosteduisetupfilename.json --run "full curl command her
 - `--run "runcommand"` - pass your curl command here
 - `--hostedui hostedui.json` - if passed, Congito Hosted UI will be launched and configured using setup from provided json file
 - `--token` - if passed, run command will be ignored and access token will be printed to stdout instead
+- `--username` - if not passed, you will be prompted to enter a username (added to cli authentication)
+- `--password` - if not passed, you will be prompted to enter a password (added to cli authentication)
 
 #### Hosted UI json setup example
 
