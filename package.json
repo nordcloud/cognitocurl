@@ -20,7 +20,7 @@
     "conf": "^2.0.0",
     "express": "^4.16.4",
     "express-ws": "^4.0.0",
-    "node-fetch": "^2.2.0",
+    "node-fetch": "^3.1.1",
     "node-persist": "^3.0.1",
     "opn": "^5.4.0",
     "query-string-params": "^1.7.5",
